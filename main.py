@@ -1,6 +1,7 @@
 import pygame
 
 import lib
+import debug
 
 pygame.init()
 
@@ -14,6 +15,8 @@ class Game():
 
         lib.events = pygame.event.get()
 
+        self.debug_interface = debug.DebugInterface()
+
     def run(self) -> None:
         while self.running:
             self.events()
@@ -25,9 +28,12 @@ class Game():
             if event.key == pygame.K_ESCAPE:
                 self.running = False
 
+            if event.key == pygame.K_TAB:
+                self.debug_interface.toggle_active()
+
     def events(self) -> None:
         lib.events = pygame.event.get()
-        
+
         for event in lib.events:
             if event.type == pygame.QUIT:
                 self.running = False
@@ -37,7 +43,12 @@ class Game():
     def draw(self) -> None:
         self.screen.fill(lib.color.BLACK)
 
+        if self.debug_interface.active:
+            self.debug_interface.draw()
+
     def update(self) -> None:
+
+        self.debug_interface.update(self.clock)
         pygame.display.update()
         lib.delta_time = self.clock.tick(lib.framerate) / 1000
 
