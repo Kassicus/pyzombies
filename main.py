@@ -2,6 +2,7 @@ import pygame
 
 import lib
 import debug
+import world
 
 pygame.init()
 
@@ -15,6 +16,7 @@ class Game():
 
         lib.events = pygame.event.get()
 
+        self.world = world.World("assets/tiled/world.png")
         self.debug_interface = debug.DebugInterface()
 
     def run(self) -> None:
@@ -43,10 +45,13 @@ class Game():
     def draw(self) -> None:
         self.screen.fill(lib.color.BLACK)
 
+        self.world.draw()
+
         if self.debug_interface.active:
             self.debug_interface.draw()
 
     def update(self) -> None:
+        self.world.update()
 
         self.debug_interface.update(self.clock)
         pygame.display.update()
