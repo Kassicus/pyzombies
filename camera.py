@@ -7,8 +7,8 @@ class PlayerCenterCamera(pygame.sprite.Group):
         pygame.sprite.Group.__init__(self)
 
         self.display_surface = display_surface
-        self.half_width = self.display_surface.get_width() // 2
-        self.half_height = self.display_surface.get_height() // 2
+        self.half_width = int(self.display_surface.get_width() / 2)
+        self.half_height = int(self.display_surface.get_height() // 2)
 
         self.ground_surface = ground_surface
         self.ground_rect = self.ground_surface.get_rect(topleft = (0, 0))

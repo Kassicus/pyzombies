@@ -34,3 +34,4 @@ framerate = 120
 global_offset = pygame.math.Vector2()
 relative_mouse_pos = pygame.math.Vector2()
 level_ref = None
+world_camera = None
