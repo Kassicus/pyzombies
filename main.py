@@ -53,7 +53,7 @@ class Game():
     def update(self) -> None:
         self.world.update()
 
-        self.debug_interface.update(self.clock)
+        self.debug_interface.update(self.clock, self.world.player)
         pygame.display.update()
         lib.delta_time = self.clock.tick(lib.framerate) / 1000
 
