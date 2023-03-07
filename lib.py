@@ -32,4 +32,5 @@ delta_time = 0
 framerate = 120
 
 global_offset = pygame.math.Vector2()
+relative_mouse_pos = pygame.math.Vector2()
 level_ref = None

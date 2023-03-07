@@ -16,8 +16,18 @@ class World():
 
         self.world_camera.add(self.player)
 
+    def get_relative_mouse_pos(self) -> pygame.math.Vector2:
+        x, y = pygame.mouse.get_pos()
+
+        x += lib.global_offset.x
+        y += lib.global_offset.y
+
+        return pygame.math.Vector2(x, y)
+
     def draw(self) -> None:
         self.world_camera.camera_draw(self.player)
 
     def update(self) -> None:
         self.world_camera.update()
+
+        lib.relative_mouse_pos = self.get_relative_mouse_pos()
