@@ -38,3 +38,4 @@ class BaseBullet(pygame.sprite.Sprite):
 class NineMil(BaseBullet):
     def __init__(self, spawn_x: int, spawn_y: int, target_x: int, target_y: int) -> BaseBullet:
         super().__init__(spawn_x, spawn_y, target_x, target_y, 100, 1, 5)
+        print(self.vel)

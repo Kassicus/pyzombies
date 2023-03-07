@@ -46,6 +46,10 @@ class Player(pygame.sprite.Sprite):
         else:
             self.vel.y = 0
 
+    def event_loop(self) -> None:
+        if pygame.mouse.get_pressed()[0]:
+            self.current_weapon.shoot(lib.relative_mouse_pos)
+
     def update(self) -> None:
         self.pos += self.vel * lib.delta_time
         self.rect.center = self.pos
