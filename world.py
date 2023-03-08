@@ -17,7 +17,8 @@ class World():
         lib.world_camera.add(self.player)
 
         self.rooms = {
-            "spawn": room.SpawnRoom()
+            "spawn": room.SpawnRoom(),
+            "r1": room.StandardRoom("Room 1", "assets/tiled/r1_test.png")
         }
 
         self.active_room = self.change_active_room("spawn")
@@ -31,4 +32,5 @@ class World():
         lib.world_camera.camera_draw()
 
     def update(self) -> None:
+        self.active_room.update()
         lib.world_camera.update()

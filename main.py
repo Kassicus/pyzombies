@@ -33,6 +33,9 @@ class Game():
             if event.key == pygame.K_TAB:
                 self.debug_interface.toggle_active()
 
+            if event.key == pygame.K_c:
+                self.world.active_room = self.world.change_active_room("r1")
+
     def events(self) -> None:
         lib.events = pygame.event.get()
 

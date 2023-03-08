@@ -17,6 +17,15 @@ class Room():
     def draw(self, surface: pygame.Surface) -> None:
         surface.blit(self.background, (0, 0))
 
+    def update(self) -> None:
+        self.enemies.update()
+        self.collidables.update()
+        self.projectiles.update()
+
 class SpawnRoom(Room):
     def __init__(self) -> Room:
         super().__init__("spawn", "assets/tiled/spawn_test.png")
+
+class StandardRoom(Room):
+    def __init__(self, name: str, background: str) -> Room:
+        super().__init__(name, background)
