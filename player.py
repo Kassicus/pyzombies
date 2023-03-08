@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.pos = pygame.math.Vector2(lib.SCREEN_WIDTH / 2, lib.SCREEN_WIDTH / 2)
         self.vel = pygame.math.Vector2()
 
-        self.speed = 300
+        self.speed = 200
 
         self.image = pygame.Surface([32, 32])
         self.image.fill(lib.color.BLUE)
