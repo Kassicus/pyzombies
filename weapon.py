@@ -1,7 +1,6 @@
 import pygame
 
 import lib
-import bullet
 
 class BaseWeapon(pygame.sprite.Sprite):
     def __init__(self, player: pygame.sprite.Sprite) -> pygame.sprite.Sprite:
@@ -36,7 +35,3 @@ class BaseWeapon(pygame.sprite.Sprite):
 class StarterHandgun(BaseWeapon):
     def __init__(self, player: pygame.sprite.Sprite) -> BaseWeapon:
         super().__init__(player)
-
-    def shoot(self, target_pos: pygame.math.Vector2):
-        b = bullet.NineMil(self.pos.x, self.pos.y, target_pos.x, target_pos.y)
-        lib.world_camera.add(b)

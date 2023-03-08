@@ -1,7 +1,6 @@
 import pygame
 
 import lib
-import weapon
 
 class Player(pygame.sprite.Sprite):
     def __init__(self) -> pygame.sprite.Sprite:
@@ -12,22 +11,11 @@ class Player(pygame.sprite.Sprite):
 
         self.speed = 300
 
-        self.weapons = {
-            '1911': weapon.StarterHandgun(self)
-        }
-
-        self.child_sprites = pygame.sprite.Group()
-        self.child_sprites.add(self.weapons["1911"])
-
-        self.current_weapon = self.weapons["1911"]
-
         self.image = pygame.Surface([32, 32])
         self.image.fill(lib.color.BLUE)
 
         self.rect = self.image.get_rect()
         self.rect.center = self.pos
-
-        lib.world_camera.add(self.current_weapon)
 
     def move(self) -> None:
         keys = pygame.key.get_pressed()
@@ -47,8 +35,7 @@ class Player(pygame.sprite.Sprite):
             self.vel.y = 0
 
     def event_loop(self) -> None:
-        if pygame.mouse.get_pressed()[0]:
-            self.current_weapon.shoot(lib.relative_mouse_pos)
+        pass
 
     def update(self) -> None:
         self.pos += self.vel * lib.delta_time
