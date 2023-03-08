@@ -6,11 +6,10 @@ import player
 import room
 
 class World():
-    def __init__(self, background_path: str) -> object:
+    def __init__(self, surface: pygame.Surface) -> object:
         lib.level_ref = self
 
-        self.display_surface = pygame.display.get_surface()
-        self.world_background = pygame.image.load(background_path).convert_alpha()
+        self.display_surface = surface
 
         lib.world_camera = camera.PlayerCenterCamera(self.display_surface)
         self.player = player.Player()
@@ -28,6 +27,7 @@ class World():
             return(self.rooms[name])
 
     def draw(self) -> None:
+        self.active_room.draw(self.display_surface)
         lib.world_camera.camera_draw()
 
     def update(self) -> None:

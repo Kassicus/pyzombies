@@ -16,7 +16,7 @@ class Game():
 
         lib.events = pygame.event.get()
 
-        self.world = world.World("assets/tiled/world.png")
+        self.world = world.World(self.screen)
         self.debug_interface = debug.DebugInterface()
 
     def run(self) -> None:
