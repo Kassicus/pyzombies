@@ -44,6 +44,6 @@ class StandardRoom(Room):
 
 collider_mesh = {
     "spawn": [
-        [5, 5, 10, 1]
+        [5, 5, 10, 1], [8, 1, 1, 10]
     ]
 }

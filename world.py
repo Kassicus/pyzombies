@@ -28,23 +28,23 @@ class World():
             return(self.rooms[name])
 
     def check_collisions(self) -> None:
-        collision_tollerance = 3
+        collision_tollerance = 10
 
-        for c in self.active_room.walls:
-            if self.player.rect.colliderect(c.rect):
-                if abs(self.player.rect.left - c.rect.right) < collision_tollerance:
+        for wall in self.active_room.walls:
+            if self.player.rect.colliderect(wall.rect):
+                if abs(self.player.rect.left - wall.rect.right) < collision_tollerance:
                     self.player.vel.x = 0
-                    self.player.pos.x = c.rect.right + self.player.rect.width / 2
-                if abs(self.player.rect.right - c.rect.left) < collision_tollerance:
+                    self.player.pos.x = wall.rect.right + self.player.rect.width / 2
+                if abs(self.player.rect.right - wall.rect.left) < collision_tollerance:
                     self.player.vel.x = 0
-                    self.player.pos.x = c.rect.left - self.player.rect.width / 2
+                    self.player.pos.x = wall.rect.left - self.player.rect.width / 2
 
-                if abs(self.player.rect.top - c.rect.bottom) < collision_tollerance:
+                if abs(self.player.rect.top - wall.rect.bottom) < collision_tollerance:
                     self.player.vel.y = 0
-                    self.player.pos.y = c.rect.bottom + self.player.rect.height / 2
-                if abs(self.player.rect.bottom - c.rect.top) < collision_tollerance:
+                    self.player.pos.y = wall.rect.bottom + self.player.rect.height / 2
+                if abs(self.player.rect.bottom - wall.rect.top) < collision_tollerance:
                     self.player.vel.y = 0
-                    self.player.pos.y = c.rect.top - self.player.rect.height / 2
+                    self.player.pos.y = wall.rect.top - self.player.rect.height / 2
 
     def draw(self) -> None:
         self.active_room.draw(self.display_surface)
