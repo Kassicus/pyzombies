@@ -4,6 +4,9 @@ import lib
 import debug
 import world
 
+
+# TODO: This is an edit
+
 pygame.init()
 
 class Game():
