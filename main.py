@@ -6,6 +6,8 @@ import world
 
 pygame.init()
 
+# Testing...
+
 class Game():
     def __init__(self) -> None:
         self.screen = pygame.display.set_mode([lib.SCREEN_WIDTH, lib.SCREEN_HEIGHT])
